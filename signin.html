@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>Login_Form</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <form onsubmit="login(event)">
+            <h1>login</h1>
+            <ul>
+                <li>Email: </li>
+                <li><input placeholder="Enter your email"  required class="input" id="loginEmail"></li>
+                <li>Password:</li>
+                <li><input placeholder="Enter your password"  required class="input" id="loginPassword"></li>
+                <li class="Submit" ><button >Login</button></li>
+                <hr>
+               <li class="newAcc"><a href="./index.html"><input type="button" value="Create new account?"></a></li>
+
+
+            </ul>
+
+        </form>
+
+    </div>
+    <!-- <p id="loginMessage" style="color:blue;"></p> -->
+    <script src="./index.js"></script>
+  </body>
+
+</html>

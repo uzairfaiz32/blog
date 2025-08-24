@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1e9fbd, #4caf50);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .blog-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      width: 500px;
+    }
+
+    .blog-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+
+    .blog-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .blog-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .blog-container input:focus {
+      border-color: #2e7d32;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .submit-btn {
+      background-color: #2e7d32;
+      color: #fff;
+    }
+
+    .submit-btn:hover {
+      background-color: #256428;
+    }
+
+    .logout-btn {
+      background-color: #d32f2f;
+      color: #fff;
+    }
+
+    .logout-btn:hover {
+      background-color: #a32020;
+    }
+
+    .blog-output {
+      margin-top: 20px;
+    }
+
+    .single-blog {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blog-container">
+    <h1>My Blog</h1>
+
+    <label>Title:</label>
+    <input id="title" placeholder="Enter blog title">
+
+    <label>Author:</label>
+    <input id="author" placeholder="Enter author name">
+
+    <label>Description:</label>
+    <input id="desc" placeholder="Enter blog description">
+
+    <button class="btn submit-btn" onclick="submitBlog()">Submit</button>
+    <button class="btn logout-btn" onclick="logout()">Logout</button>
+
+    <h2>All Blogs:</h2>
+    <div id="result" class="blog-output"></div>
+  </div>
+
+  <script>
+    function submitBlog() {
+      let title = document.getElementById("title").value;
+      let author = document.getElementById("author").value;
+      let desc = document.getElementById("desc").value;
+
+      if(title && author && desc){
+        let blog = "<div class='single-blog'>" +
+                      "<h3>" + title + "</h3>" +
+                      "<p><b>Author:</b> " + author + "</p>" +
+                      "<p>" + desc + "</p>" +
+                   "</div>";
+
+        document.getElementById("result").innerHTML += blog;
+
+        // inputs clear
+        document.getElementById("title").value = "";
+        document.getElementById("author").value = "";
+        document.getElementById("desc").value = "";
+      } else {
+        alert("Please fill all fields!");
+      }
+    }
+
+    function logout(){
+      localStorage.removeItem("loggedIn");  
+      alert("Logged out successfully!");
+      window.location.href = "index.html"; 
+    }
+  </script>
+
+</body>
+</html>
+
